@@ -1172,7 +1172,7 @@
       <div class="contact-form-wrap">
         <h3>Start the Conversation</h3>
         <p class="form-note">Fill this out and Edward will reach out to schedule a free consultation at your convenience.</p>
-        <form name="contact" method="POST" data-netlify="true">
+        <form name="contact" method="POST" data-netlify="true" action="/thank-you">
           <div class="form-row">
             <div class="form-group"><label>First Name *</label><input type="text" name="first" placeholder="First name" required></div>
             <div class="form-group"><label>Last Name *</label><input type="text" name="last" placeholder="Last name" required></div>
@@ -1329,5 +1329,22 @@
     });
   });
 </script>
+<!-- THANK YOU PAGE (shown after form submission) -->
+<div id="thank-you-page" style="display:none; position:fixed; inset:0; background:#FAF7F2; z-index:9999; flex-direction:column; align-items:center; justify-content:center; font-family:'Nunito',sans-serif;">
+  <div style="text-align:center; max-width:480px; padding:2rem;">
+    <div style="width:64px; height:64px; border-radius:50%; background:#D4E8D9; display:flex; align-items:center; justify-content:center; font-size:28px; margin:0 auto 1.5rem;">✓</div>
+    <h2 style="font-family:'Lora',serif; font-size:28px; color:#2C4A35; margin-bottom:0.75rem;">Message Received!</h2>
+    <p style="color:#6B6860; font-size:16px; line-height:1.7; margin-bottom:2rem;">Thank you for reaching out. Edward will be in touch within 24 hours to set up your free consultation.</p>
+    <a href="/" style="background:#2C4A35; color:#fff; padding:12px 28px; border-radius:40px; text-decoration:none; font-weight:700; font-size:15px;">← Back to Site</a>
+  </div>
+</div>
+
+<script>
+  if (window.location.pathname === '/thank-you') {
+    document.getElementById('thank-you-page').style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+  }
+</script>
+
 </body>
 </html>
